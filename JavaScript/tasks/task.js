@@ -47,8 +47,7 @@ class ArrayedMap {
     this.valuesArr = [];
   }
   *[Symbol.iterator]() {
-    for (const elem of this.keysArr)
-      yield [ elem[0], this.valuesArr[elem[1]] ];
+    yield* this.keysArr.map(elem => [ elem[0], this.valuesArr[elem[1]] ]);
   }
 }
 
